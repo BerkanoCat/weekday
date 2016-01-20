@@ -10,9 +10,10 @@ def parse_year(year):
     return [year[0:2], year[2:4]]
     
     
-def is_leap_year(year):
+def is_leap_year(input_year):
     # This simply determines whether or not the year is a leap year, which has a slight
     # bearing on the final calculation.
+    year = parse_year(input_year)
     century = int(year[0])
     last_two = int(year[1])
     
@@ -26,7 +27,8 @@ def is_leap_year(year):
         return True
     
     
-def find_year_code(year):
+def find_year_code(input_year):
+    year = parse_year(input_year)
     century = year[0]
     last_two = year[1]
     # Here we determine whether or not to modify the year code based on what century we're
@@ -58,7 +60,7 @@ def get_weekday():
     query = get_user_input()
     month = query[0]
     date = int(query[1])
-    year = parse_year(int(query[2]))
+    year = int(query[2])
     
     month_codes = {"01": 6, "02": 2, "03": 2, "04": 5, "05": 0, "06": 3, "07": 5, "08": 1, "09": 4, "10": 6, "11": 2, "12": 4}
     weekday_codes = {"0": "Sunday", "1": "Monday", "2": "Tuesday", "3": "Wednesday", "4": "Thursday", "5": "Friday", "6": "Saturday"}
